@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Comandas</title>
+</head>
+<body>
+    <section class='section'>
+        <div class="divContainer">
+            <div class='btns'>
+
+                <button class='button btnselect' onclick="seletorMenu('div1')" >ABRIR COMANDA</button>
+                <button  class='button btnselect' onclick="seletorMenu('div2')" >ACRESCENTAR PEDIDO</button>
+                <button class='button btnselect' onclick="seletorMenu('div3')" >ALTERAR PEDIDO</button>
+                <button class='button btnselect' onclick="seletorMenu('div4')" > FECHAR COMANDA</button>
+
+            </div>
+            <div class='div' id='div1'>
+                <h3 class='title is-4'>ABRIR COMANDA</h3>
+                <input type="text" name="mesa" id="mesa"  class='input' placeholder="33">
+                <input type="button" value="SELECIONAR MESA" onclick="selectMesa()" class='button' id='btnmesa'><br><br>
+                <data><input type="text" id='pedido' class='input' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
+                <input type="button" onclick="acrescPedido()" class='button' value='Acrescentar pedido' id='btnAcrescentar' disabled><br><br>
+                <p id='visualizacao'></p>
+                <p id='pedidoRegistrado'></p><br>
+                <button class='button btnleft' onclick="limpar()" id='btnlimpar' disabled>Limpar</button>
+                <datalist id = 'listadepedidos'>
+                    <option>01 - Porção de Asinha R$29.90</option>
+                    <option>02 - Coca 350ml R$6.50</option>
+                    <option>03 - Coca 2L R$12.00</option>
+                    <option>04 - Porção Batata R$29.90</option>
+                    <option>05 - Porção Alcatra R$49.90</option>
+                    <option>06 - Devassa 600ml R$9.90</option>
+                    <option>07 - Devassa Litrão R$12.50</option>
+                    <option>08 - Heineken LongNeck R$8.00</option>
+                    <option>09 - Heineken 600ml R$12.90</option>
+                    <option>10 - Água R$6.00</option>
+                </datalist>
+            </div>
+            <div class='div' id='div2'>
+                <h3 class='title is-4'>ACRESCENTAR PEDIDO</h3>
+                <input type="text" name="mesa" id="mesaAcrescentar"  class='input' placeholder="33">
+                <input type="button" value="selecionar mesa" onclick="buscarMesa()" class='button' id='btnmesaAcrescentar'><br><br>
+                <data><input type="text" id='pedidoAcrescentar' class='input' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
+                <input type="button" onclick="acrescPedido2()" class='button' id='btnPedidoAcrescentar' value='Acrescentar pedido' disabled><br><br>
+                <p id='visualizacaoAcrescentar'></p>
+                <p id='pedidoAcrescentarTxt'></p><br>
+                <button class='button btnleft' onclick="limparAcrescentar()" id='btnLimparAcrescentar' disabled>Limpar</button>
+
+            </div>
+            <div class='div' id='div3'>
+                <h3 class='title is-4'>ALTERAR COMANDA</h3>
+                <div class="dropdown" onclick="dropDown()" id='dropDown'>
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span>Mesas</span>
+                        <span class="icon is-small">
+                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="dropdown-content" id='dropDownDiv'>
+                          <p class='dropdown-item' id='dropDownItem1' onclick="mesaAlterarPedido(1)">1</p>
+                          <p class='dropdown-item' id='dropDownItem2' onclick="mesaAlterarPedido(2)">2</p>
+                          <p class='dropdown-item' id='dropDownItem3' onclick="mesaAlterarPedido(3)">3</p>
+                          <p class='dropdown-item' id='dropDownItem4' onclick="mesaAlterarPedido(4)">4</p>
+                          <p class='dropdown-item' id='dropDownItem5' onclick="mesaAlterarPedido(5)">5</p>
+                          <p class='dropdown-item' id='dropDownItem6' onclick="mesaAlterarPedido(6)">6</p>
+                          <p class='dropdown-item' id='dropDownItem7' onclick="mesaAlterarPedido(7)">7</p>
+                          <p class='dropdown-item' id='dropDownItem8' onclick="mesaAlterarPedido(8)">8</p>
+                          <p class='dropdown-item' id='dropDownItem9' onclick="mesaAlterarPedido(9)">9</p>
+                          <p class='dropdown-item' id='dropDownItem10' onclick="mesaAlterarPedido(10)">10</p>
+                          <p class='dropdown-item' id='dropDownItem11' onclick="mesaAlterarPedido(11)">11</p>
+                          <p class='dropdown-item' id='dropDownItem12' onclick="mesaAlterarPedido(12)">12</p>
+                          <p class='dropdown-item' id='dropDownItem13' onclick="mesaAlterarPedido(13)">13</p>
+                          <p class='dropdown-item' id='dropDownItem14' onclick="mesaAlterarPedido(14)">14</p>
+                          <p class='dropdown-item' id='dropDownItem15' onclick="mesaAlterarPedido(15)">15</p>
+                      </div>
+                    </div>
+                  </div><br><br><br>
+                  <div>
+                      <p id='visualizacaoAlterar'></p>
+                  </div><br><br>
+                  <div id='buttons'>
+                      <button class='button' onclick="alterarNumMesa()" id ='btnAlterarNumMesa' disabled>ALTERAR MESA</button>
+                      <button class='button'onclick="cancelarPedido()" id='btnCancelarPedido' disabled>CANCELAR ITEM</button>
+                      <button class='button' onclick="cancelarComanda()" id='btnCancelarComanda' disabled>CANCELAR COMANDA</button>
+                  </div>
+                  <div class='divAlterar' id='divAlterarNumMesa'>
+                    <p>Selecione um novo número para mesa:</p><br>
+                    <div class='padding-left'>
+                        <input type="text" class='input' id='novoNumMesa' placeholder="33">
+                        <button class='button' onclick="novoNumMesaFunc()">REGISTRAR</button>
+                    </div>
+                  </div>
+                  <div class='divAlterar' id='divCalcelarItem' >
+                    <div class='hidden' id='checkbox1div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox1" id="checkbox1" onclick="strikeFunc(1)">
+                            <label for="checkbox1" id='checkbox1txt' class='label' onclick="strikeFunc(1)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox2div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox2" id="checkbox2" onclick="strikeFunc(2)">
+                            <label for="checkbox2" id='checkbox2txt' class='label' onclick="strikeFunc(2)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox3div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox3" id="checkbox3" onclick="strikeFunc(3)">
+                            <label for="checkbox3" id='checkbox3txt' class='label' onclick="strikeFunc(3)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox4div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox4" id="checkbox4" onclick="strikeFunc(4)">
+                            <label for="checkbox4" id='checkbox4txt' class='label' onclick="strikeFunc(4)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox5div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox5" id="checkbox5" onclick="strikeFunc(5)">
+                            <label for="checkbox5" id='checkbox5txt' class='label' onclick="strikeFunc(5)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox6div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox6" id="checkbox6" onclick="strikeFunc(6)">
+                            <label for="checkbox6" id='checkbox6txt' class='label' onclick="strikeFunc(6)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox7div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox7" id="checkbox7" onclick="strikeFunc(7)">
+                            <label for="checkbox7" id='checkbox7txt' class='label' onclick="strikeFunc(7)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox8div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox8" id="checkbox8" onclick="strikeFunc(8)">
+                            <label for="checkbox8" id='checkbox8txt' class='label' onclick="strikeFunc(8)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox9div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox9" id="checkbox9" onclick="strikeFunc(9)">
+                            <label for="checkbox9" id='checkbox9txt' class='label' onclick="strikeFunc(9)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox10div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox10" id="checkbox10" onclick="strikeFunc(10)">
+                            <label for="checkbox10" id='checkbox10txt' class='label' onclick="strikeFunc(10)"></label>
+                        </div>
+                    </div>
+                    <div class='hidden' id='checkbox11div'>
+                        <div class='wrap'>
+                            <input type="checkbox" name="checkbox11" id="checkbox11" onclick="strikeFunc(11)">
+                            <label for="checkbox11" id='checkbox11txt' class='label' onclick="strikeFunc(11)"></label>
+                        </div>
+                    </div>
+                    
+
+                    <button class='button' id='btnCancelarItem' onclick="cancelarItensFunc()">CANCELAR ITENS</button>
+                  </div>
+                  <div class='divAlterar'>
+
+                  </div>
+            </div>
+            <div class='div' id='div4'>
+                <h3 class='title is-4'>FECHAR COMANDA</h3>
+                <input type="text" name="mesa" id="mesaFechar"  class='input' placeholder="33">
+                <input type="button" value="selecionar mesa" onclick="mesaFechamento()" class='button' id='btnMesaFechar'>
+                <p id='visualizacaoFechar'></p><br><br>
+                <p id='visualizacaoTotal'></p><br>
+                <button class='button btnleft' onclick="fechar()" id='btnFechar' disabled>OK, pago</button>
+                <button class='button btnleft' onclick="limparFechar()" id='btnLimparFechar' disabled>Limpar</button>
+
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

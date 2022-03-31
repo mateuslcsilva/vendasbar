@@ -1,0 +1,91 @@
+.section{
+    display: flex;
+    flex-direction: column;
+}
+.divContainer{
+    margin:auto;
+}
+.div{
+    margin-top: 7vh;
+}
+.divAlterar{
+    margin-left: -3.03vh;
+    margin-top: 4.55vh;
+    height: 22.79vh;
+    width: 86.62vh;
+    display: none;
+}
+.btns{
+margin-top: 10vh;
+
+}
+.btnselect{
+    margin: 0;
+    border: none;
+    padding-right:  1.51vh;
+    padding-left: .75vh;
+
+
+}
+#div1{
+    display: block;
+    margin-left: 15.19vh;
+}
+#div2, #div3, #div4{
+    display: none;
+    margin-left: 15.19vh;
+}
+#pedido, #pedidoAcrescentar{
+    width: 53.19vh;
+}
+#mesa, #mesaAcrescentar, #mesaFechar, #novoNumMesa{
+    width: 7.59vh;
+}
+.btnleft{
+    margin-left: 30.39vh;
+}
+#pedidoRegistrado, #pedidoAcrescentarTxt{
+    margin-left: 53.19vh;
+}
+#visualizacaoTotal{
+    margin-left: 60.79vh;
+}
+#btnLimparFechar{
+    margin-left: 1.51vh;
+}
+#dropDownDiv{
+    width: 17vh;
+}
+.dropdown-item{
+    display: none;
+}
+.dropdown-item:hover{
+   
+    color: white;
+    background-color: royalblue;
+}
+.padding-left{
+    padding-left: 53.19vh;
+}
+.hidden{
+    display: none;
+}
+.wrap{
+    display: flex;
+    height:  3.799vh;
+    flex-direction: row;
+}
+.label{
+    margin-left:  0.759vh;
+    margin-top: -1vh;
+}
+#btnCancelarItem{
+    margin-left: 30.39vh;
+    margin-top: 0.69vh;
+}
+.button{
+    box-shadow:  0.2vh  0.2vh 1vh rgb(37, 175, 255);
+}
+.input{
+    box-shadow:  0.759vh  0.759vh 1.51vh rgba(52, 115, 151, 0.404);
+}
