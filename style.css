@@ -41,6 +41,9 @@ margin-top: 10vh;
 #mesa, #mesaAcrescentar, #mesaFechar, #novoNumMesa{
     width: 7.59vh;
 }
+#mesa::placeholder{
+    color:rgb(37, 175, 255);
+}
 .btnleft{
     margin-left: 30.39vh;
 }
@@ -56,9 +59,7 @@ margin-top: 10vh;
 #dropDownDiv{
     width: 17vh;
 }
-.dropdown-item{
-    display: none;
-}
+
 .dropdown-item:hover{
    
     color: white;
@@ -84,8 +85,8 @@ margin-top: 10vh;
     margin-top: 0.69vh;
 }
 .button{
-    box-shadow:  0.2vh  0.2vh 1vh rgb(37, 175, 255);
+    box-shadow:  0 0 1vh rgb(37, 175, 255);
 }
 .input{
-    box-shadow:  0.759vh  0.759vh 1.51vh rgba(52, 115, 151, 0.404);
+    box-shadow:  0.759vh  0.759vh 1.51vh rgba(52, 115, 151, 0.664);
 }
