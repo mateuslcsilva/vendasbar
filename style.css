@@ -1,9 +1,11 @@
+.button{
+    background-color: #00ffff96;
+    font-weight: 600;
+}
 .section{
     display: flex;
     flex-direction: column;
-}
-.divContainer{
-    margin:auto;
+    align-items: center;
 }
 .div{
     margin-top: 7vh;
@@ -21,11 +23,16 @@ margin-top: 10vh;
 }
 .btnselect{
     margin: 0;
-    border: none;
     padding-right:  1.51vh;
     padding-left: .75vh;
-
-
+    font-size: 13pt;
+    background-color: white;
+    border: 2px solid rgb(181,241,221);
+    transition: 7ms ease-in-out;
+}
+.btnselect:hover{
+    border: 2px solid #00ffff;
+    background-color: #00ffff25;
 }
 #div1{
     display: block;
@@ -41,9 +48,6 @@ margin-top: 10vh;
 #mesa, #mesaAcrescentar, #mesaFechar, #novoNumMesa{
     width: 7.59vh;
 }
-#mesa::placeholder{
-    color:rgb(37, 175, 255);
-}
 .btnleft{
     margin-left: 30.39vh;
 }
@@ -58,12 +62,11 @@ margin-top: 10vh;
 }
 #dropDownDiv{
     width: 17vh;
+    background-color: rgba(181, 241, 221, 0.795);
 }
 
 .dropdown-item:hover{
-   
-    color: white;
-    background-color: royalblue;
+    background-color: #00ffff96;
 }
 .padding-left{
     padding-left: 53.19vh;
@@ -84,9 +87,21 @@ margin-top: 10vh;
     margin-left: 30.39vh;
     margin-top: 0.69vh;
 }
-.button{
-    box-shadow:  0 0 1vh rgb(37, 175, 255);
-}
 .input{
-    box-shadow:  0.759vh  0.759vh 1.51vh rgba(52, 115, 151, 0.664);
+    border: 2px groove #00ffff96;
+}
+.input:focus{
+    border: 2px groove #00ffff;
+}
+.divContainer{
+    padding: 3vh;
+    box-shadow: .1vh .1vh .9vh rgba(128, 128, 128, 0.568);
+    margin:auto;
+    background-color: #ffffff;
+
+}
+  body{
+      height: 150vh;
+      background: rgb(181,241,221);
+background: linear-gradient(139deg, rgba(181,241,221,1) 69%, rgba(255,255,255,1) 92%);
 }

@@ -19,6 +19,11 @@ function seletorMenu(div) {
     div == 'div2' ? div2.style.display = 'block' : {}
     div == 'div3' ? div3.style.display = 'block' : {}
     div == 'div4' ? div4.style.display = 'block' : {}
+
+    limpar()
+    limparAcrescentar()
+    limparFechar()
+    limparAlterar()
 }
 
 class cadastroPedido {
@@ -58,6 +63,7 @@ function selectMesa() {
         }
     } else {
         alert('Mesa já cadastrada! Feche a conta antes de usá-la de novo.')
+        document.querySelector('#mesa').value = ''
     }
 
 
@@ -98,6 +104,9 @@ function buscarMesa() {
     mesas.forEach((mesas, index) => {
         if (mesas.numMesa == num) {
             mesaAcrescentar = index
+        } else {
+            alert('Não há pedidos para essa mesa!')
+            document.querySelector('#mesaAcrescentar').value = ''
         }
     })
     if (mesas[mesaAcrescentar].numMesa != undefined) {
@@ -131,7 +140,7 @@ function mesaAlterarPedido(element) {
     document.querySelector('#btnCancelarPedido').removeAttribute('disabled', '')
     document.querySelector('#btnCancelarComanda').removeAttribute('disabled', '')
     document.querySelector('#visualizacaoAlterar').innerHTML = 'Mesa: ' + mesas[mesaAlterar].numMesa + '<br>' + mesas[mesaAlterar].pedido.join('')
-    if (document.querySelector('#divCalcelarItem').children) {
+    if (document.querySelector('#divCancelarItem').children) {
         var remover = []
         remover = document.querySelectorAll('.wrap')
         for (var i = 0; i < remover.length; i++) {
@@ -143,6 +152,9 @@ function mesaAlterarPedido(element) {
 function alterarNumMesa() {
     document.querySelector('#visualizacaoAlterar').innerHTML = 'Mesa: ' + mesas[mesaAlterar].numMesa + '<br>' + mesas[mesaAlterar].pedido.join('')
     document.querySelector('#divAlterarNumMesa').style.display = 'block'
+    document.querySelector('#divCancelarItem').style.display = 'none'
+    document.querySelector('#btnCancelarPedido').removeAttribute('disabled', '')
+    document.querySelector('#btnAlterarNumMesa').setAttribute('disabled', '')
 }
 function novoNumMesaFunc() {
     var novoNumMesa = document.querySelector('#novoNumMesa').value
@@ -153,6 +165,7 @@ function novoNumMesaFunc() {
             verificacao = varMesas.numMesa
         }
     })
+
     if (verificacao != novoNumMesa) {
         document.querySelector('#dropDownDiv').children[mesaAlterar].innerHTML = novoNumMesa
         document.querySelector('#dropDownDiv').children[mesaAlterar].setAttribute('name', novoNumMesa)
@@ -165,6 +178,10 @@ function novoNumMesaFunc() {
     } else {
         alert('Mesa já cadastrada em outra comanda!')
     }
+
+    document.querySelector('#btnCancelarPedido').setAttribute('disabled', '')
+    document.querySelector('#btnAlterarNumMesa').setAttribute('disabled', '')
+    document.querySelector('#btnCancelarComanda').setAttribute('disabled', '')
 }
 
 function cancelarComanda() {
@@ -178,12 +195,26 @@ function cancelarComanda() {
 
         document.querySelector('#visualizacaoAlterar').innerHTML = ''
     }
+    document.querySelector('#btnCancelarPedido').setAttribute('disabled', '')
+    document.querySelector('#btnAlterarNumMesa').setAttribute('disabled', '')
+    document.querySelector('#btnCancelarComanda').setAttribute('disabled', '')
+
+    document.querySelector('#divAlterarNumMesa').style.display = 'none'
+    document.querySelector('#divCancelarItem').style.display = 'none'
 }
 
 function cancelarPedido() {
+    if (document.querySelector('#divCancelarItem').children) {
+        var remover = []
+        remover = document.querySelectorAll('.wrap')
+        for (var i = 0; i < remover.length; i++) {
+            remover[i].remove()
+        }
+    }
+    document.querySelector('#divAlterarNumMesa').style.display = 'none'
     let button = document.querySelector('#btnCancelarItem')
     button.remove()
-    document.querySelector('#divCalcelarItem').style.display = 'block'
+    document.querySelector('#divCancelarItem').style.display = 'block'
 
     for (var i = 0; i < mesas[mesaAlterar].pedido.length; i++) {
         let divWrap = document.createElement('div')
@@ -202,12 +233,13 @@ function cancelarPedido() {
 
         divWrap.append(checkbox)
         divWrap.append(label)
-        document.querySelector('#divCalcelarItem').append(divWrap)
+        document.querySelector('#divCancelarItem').append(divWrap)
     }
 
 
-    document.querySelector('#divCalcelarItem').append(button)
+    document.querySelector('#divCancelarItem').append(button)
     document.querySelector('#btnCancelarPedido').setAttribute('disabled', '')
+    document.querySelector('#btnAlterarNumMesa').removeAttribute('disabled', '')
 }
 
 function strikeFunc(element) {
@@ -221,19 +253,20 @@ function strikeFunc(element) {
 }
 
 function cancelarItensFunc() {
-    document.querySelector('#divCalcelarItem').style.display = 'none'
+    document.querySelector('#divCancelarItem').style.display = 'none'
     for (var i = 0; i < mesas[mesaAlterar].pedido.length; i++) {
-        document.querySelector('#divCalcelarItem').children[i].children[0].checked ? mesas[mesaAlterar].pedido.splice(i, 1) : {}
+        document.querySelector('#divCancelarItem').children[i].children[0].checked ? mesas[mesaAlterar].pedido.splice(i, 1) : {}
     }
     document.querySelector('#visualizacaoAlterar').innerHTML = 'Mesa: ' + mesas[mesaAlterar].numMesa + '<br>' + mesas[mesaAlterar].pedido.join('') + '<br>OK, item cancelado!!'
     document.querySelector('#btnCancelarPedido').removeAttribute('disabled', '')
-    if (document.querySelector('#divCalcelarItem').children) {
+    if (document.querySelector('#divCancelarItem').children) {
         var remover = []
         remover = document.querySelectorAll('.wrap')
         for (var i = 0; i < remover.length; i++) {
             remover[i].remove()
         }
     }
+
 }
 
 function somarTotal(valorpedido) {
@@ -258,6 +291,9 @@ function mesaFechamento() {
     mesas.forEach((mesas, index) => {
         if (mesas.numMesa == num) {
             mesaFechar = index
+        } else {
+            alert('Não há pedidos para essa mesa!')
+            document.querySelector('#mesaAcrescentar').value = ''
         }
     })
     if (num.length <= 2) {
@@ -292,6 +328,13 @@ function limparFechar() {
     document.querySelector('#visualizacaoTotal').innerHTML = ''
     document.querySelector('#mesaFechar').value = ''
     mesaFechar = 999999
+}
+function limparAlterar() {
+    document.querySelector('#visualizacaoAlterar').innerHTML = ''
+    document.querySelector('#btnCancelarPedido').setAttribute('disabled', '')
+    document.querySelector('#btnAlterarNumMesa').setAttribute('disabled', '')
+    document.querySelector('#btnCancelarComanda').setAttribute('disabled', '')
+    mesaAlterar = 999999
 }
 
 function dropDown() {
