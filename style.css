@@ -34,6 +34,9 @@ margin-top: 10vh;
     border: 2px solid #00ffff;
     background-color: #00ffff25;
 }
+.btnselect:focus{
+    border: 2px solid #00ffff;
+}
 #div1{
     display: block;
     margin-left: 15.19vh;

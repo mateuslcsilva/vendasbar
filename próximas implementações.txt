@@ -1,11 +1,8 @@
 em ordem de ação:
 **ESTÉTICA**
-- melhorar a estética da aplicação, dar um pouco mais de cor pra tornar mais fácil de usar.
 - Tornar totalmente responsivo, para telas maiores e menores
 
 **CÓDIGO**
-- trocar a sessão de checkbox no menu de CANCELAR ITEM; fazer com que todos os elementos checkbox e seus labels sejam criadas
-- trocar o dropdown no menu de ALTERAR PEDIDO, fazer com que os elementos ali sejam criados, e acessá-los de alguma  maneira para excluí-los depois. A parte do excluir é um desafio, mas talvez que tenha conseguido (anotação na folha que trouxe do trabalho)
 
 
 **ACRESCENTAR**
