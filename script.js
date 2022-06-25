@@ -10,7 +10,7 @@ var mesaAlterar
 var mesaFechar
 var dropDownItem = []
 
-function seletorMenu(div) {
+function seletorMenu(div, element) {
     div1.style.display = 'none'
     div2.style.display = 'none'
     div3.style.display = 'none'
@@ -19,6 +19,14 @@ function seletorMenu(div) {
     div == 'div2' ? div2.style.display = 'block' : {}
     div == 'div3' ? div3.style.display = 'block' : {}
     div == 'div4' ? div4.style.display = 'block' : {}
+
+    let btns = document.querySelectorAll('.btnselect')
+
+    for (let i = 0; i < btns.length; i++){
+        btns[i].classList.contains('is-outlined')? {} : btns[i].classList.add('is-outlined')
+    }
+
+    element.classList.remove('is-outlined')
 
     limpar()
     limparAcrescentar()
@@ -221,12 +229,14 @@ function cancelarPedido() {
         divWrap.setAttribute('class', 'wrap')
 
         let checkbox = document.createElement('input')
+        checkbox.id = i
         checkbox.setAttribute('type', 'checkbox')
         checkbox.setAttribute('onclick', 'strikeFunc(this)')
 
-        let label = document.createElement('p')
+        let label = document.createElement('label')
         label.setAttribute('class', 'label')
         label.setAttribute('data-num', 'label')
+        label.setAttribute('for', `{i}`)
         label.dataset.dataNum = i
         label.setAttribute('onclick', 'strikeFunc(this)')
         label.innerHTML = mesas[mesaAlterar].pedido[i]

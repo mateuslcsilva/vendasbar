@@ -15,19 +15,19 @@
     <section class='section'>
         <div class="divContainer">
             <div class='btns'>
-
-                <button class='button btnselect' onclick="seletorMenu('div1')" >ABRIR COMANDA</button>
-                <button  class='button btnselect' onclick="seletorMenu('div2')" >ACRESCENTAR PEDIDO</button>
-                <button class='button btnselect' onclick="seletorMenu('div3')" >ALTERAR PEDIDO</button>
-                <button class='button btnselect' onclick="seletorMenu('div4')" > FECHAR COMANDA</button>
+ 
+                <button class='button is-info  btnselect' onclick="seletorMenu('div1', this)" >NOVA MESA</button>
+                <button  class='button is-info is-outlined btnselect' onclick="seletorMenu('div2', this)" >ACRESCENTAR PEDIDO</button>
+                <button class='button is-info is-outlined btnselect' onclick="seletorMenu('div3', this)" >ALTERAR PEDIDO</button>
+                <button class='button is-info is-outlined btnselect' onclick="seletorMenu('div4', this)" > FECHAR COMANDA</button>
 
             </div>
             <div class='div' id='div1'>
                 <h3 class='title is-3'>ABRIR COMANDA</h3>
-                <input type="text" name="mesa" id="mesa"  class='input' placeholder="33">
-                <input type="button" value="SELECIONAR MESA" onclick="selectMesa()" class='button' id='btnmesa'><br><br>
-                <data><input type="text" id='pedido' class='input' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
-                <input type="button" onclick="acrescPedido()" class='button' value='Acrescentar pedido' id='btnAcrescentar' disabled><br><br>
+                <input type="text" name="mesa" id="mesa"  class='input is-info' placeholder="33">
+                <input type="button" value="Selecionar Mesa" onclick="selectMesa()" class='button is-info' id='btnmesa'><br><br>
+                <data><input type="text" id='pedido' class='input is-info' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
+                <input type="button" onclick="acrescPedido()" class='button is-info' value='Acrescentar pedido' id='btnAcrescentar' disabled><br><br>
                 <p id='visualizacao'></p>
                 <p id='pedidoRegistrado'></p><br>
                 <button class='button btnleft' onclick="limpar()" id='btnlimpar' disabled>Limpar</button>
@@ -46,20 +46,20 @@
             </div>
             <div class='div' id='div2'>
                 <h3 class='title is-3'>ACRESCENTAR PEDIDO</h3>
-                <input type="text" name="mesa" id="mesaAcrescentar"  class='input' placeholder="33">
-                <input type="button" value="selecionar mesa" onclick="buscarMesa()" class='button' id='btnmesaAcrescentar'><br><br>
-                <data><input type="text" id='pedidoAcrescentar' class='input' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
-                <input type="button" onclick="acrescPedido2()" class='button' id='btnPedidoAcrescentar' value='Acrescentar pedido' disabled><br><br>
+                <input type="text" name="mesa" id="mesaAcrescentar"  class='input is-info' placeholder="33">
+                <input type="button" value="Selecionar Mesa" onclick="buscarMesa()" class='button is-info' id='btnmesaAcrescentar'><br><br>
+                <data><input type="text" id='pedidoAcrescentar' class='input is-info' placeholder="00 - Nome do Pedido" list='listadepedidos'></data><br><br>
+                <input type="button" onclick="acrescPedido2()" class='button is-info' id='btnPedidoAcrescentar' value='Acrescentar pedido' disabled><br><br>
                 <p id='visualizacaoAcrescentar'></p>
                 <p id='pedidoAcrescentarTxt'></p><br>
-                <button class='button btnleft' onclick="limparAcrescentar()" id='btnLimparAcrescentar' disabled>Limpar</button>
+                <button class='button btnleft ' onclick="limparAcrescentar()" id='btnLimparAcrescentar' disabled>Limpar</button>
 
             </div>
             <div class='div' id='div3'>
                 <h3 class='title is-3'>ALTERAR COMANDA</h3>
                 <div class="dropdown" onclick="dropDown()" id='dropDown'>
                     <div class="dropdown-trigger">
-                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                      <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu">
                         <span>Mesas</span>
                         <span class="icon is-small">
                           <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -67,7 +67,7 @@
                       </button>
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                      <div class="dropdown-content" id='dropDownDiv'>
+                      <div class="dropdown-content is-info" id='dropDownDiv'>
 
                       </div>
                     </div>
@@ -76,22 +76,22 @@
                       <p id='visualizacaoAlterar'></p>
                   </div><br><br>
                   <div id='buttons'>
-                      <button class='button' onclick="alterarNumMesa()" id ='btnAlterarNumMesa' disabled>ALTERAR MESA</button>
-                      <button class='button'onclick="cancelarPedido()" id='btnCancelarPedido' disabled>CANCELAR ITEM</button>
-                      <button class='button' onclick="cancelarComanda()" id='btnCancelarComanda' disabled>CANCELAR COMANDA</button>
+                      <button class='button is-info' onclick="alterarNumMesa()" id ='btnAlterarNumMesa' disabled>ALTERAR MESA</button>
+                      <button class='button is-info'onclick="cancelarPedido()" id='btnCancelarPedido' disabled>CANCELAR ITEM</button>
+                      <button class='button is-danger' onclick="cancelarComanda()" id='btnCancelarComanda' disabled>CANCELAR COMANDA</button>
                   </div>
                   <div class='divAlterar' id='divAlterarNumMesa'>
                     <p>Selecione um novo número para mesa:</p><br>
                     <div class='padding-left'>
-                        <input type="text" class='input' id='novoNumMesa' placeholder="33">
-                        <button class='button' onclick="novoNumMesaFunc()">REGISTRAR</button>
+                        <input type="text" class='input is-info' id='novoNumMesa' placeholder="33">
+                        <button class='button is-success' onclick="novoNumMesaFunc()">REGISTRAR</button>
                     </div>
                   </div>
                   <div class='divAlterar' id='divCancelarItem' >
 
 
 
-                    <button class='button' id='btnCancelarItem' onclick="cancelarItensFunc()">CANCELAR ITENS</button>
+                    <button class='button is-outlined is-danger' id='btnCancelarItem' onclick="cancelarItensFunc()">CANCELAR ITENS</button>
                   </div>
                   <div class='divAlterar'>
 
@@ -99,11 +99,11 @@
             </div>
             <div class='div' id='div4'>
                 <h3 class='title is-3'>FECHAR COMANDA</h3>
-                <input type="text" name="mesa" id="mesaFechar"  class='input' placeholder="33">
-                <input type="button" value="selecionar mesa" onclick="mesaFechamento()" class='button' id='btnMesaFechar'>
+                <input type="text" name="mesa" id="mesaFechar"  class='input is-info' placeholder="33">
+                <input type="button" value="Selecionar Mesa" onclick="mesaFechamento()" class='button is-info' id='btnMesaFechar'>
                 <p id='visualizacaoFechar'></p><br><br>
                 <p id='visualizacaoTotal'></p><br>
-                <button class='button btnleft' onclick="fechar()" id='btnFechar' disabled>OK, pago</button>
+                <button class='button is-success btnleft' onclick="fechar()" id='btnFechar' disabled>OK, pago</button>
                 <button class='button btnleft' onclick="limparFechar()" id='btnLimparFechar' disabled>Limpar</button>
 
             </div>

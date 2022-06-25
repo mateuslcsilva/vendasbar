@@ -1,5 +1,10 @@
+body{
+    height: 150vh;
+    background-color: #273050;
+}
+
 .button{
-    background-color: #14eeee77;
+
     font-weight: 600;
 }
 .section{
@@ -9,6 +14,8 @@
 }
 .div{
     margin-top: 7vh;
+    width:80%
+
 }
 .divAlterar{
     margin-left: -3.03vh;
@@ -17,26 +24,8 @@
     width: 86.62vh;
     display: none;
 }
-.btns{
-margin-top: 10vh;
 
-}
-.btnselect{
-    margin: 0;
-    padding-right:  1.51vh;
-    padding-left: .75vh;
-    font-size: 13pt;
-    background-color: white;
-    border: 2px solid rgb(181,241,221);
-    transition: 7ms ease-in-out;
-}
-.btnselect:hover{
-    border: 2px solid #00ffff;
-    background-color: #00ffff25;
-}
-.btnselect:focus{
-    border: 2px solid #00ffff;
-}
+
 #div1{
     display: block;
     margin-left: 15.19vh;
@@ -65,11 +54,20 @@ margin-top: 10vh;
 }
 #dropDownDiv{
     width: 17vh;
-    background-color: rgba(181, 241, 221, 0.795);
+    border: 1px solid #3e8ed0;
+}
+.dropdown-item{
+    cursor: pointer;
+    width: 90%;
+    border-radius: 5px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
 }
 
 .dropdown-item:hover{
-    background-color: #00ffff96;
+    background-color: #3e8ed0;
+    color: white;
 }
 .padding-left{
     padding-left: 53.19vh;
@@ -90,21 +88,15 @@ margin-top: 10vh;
     margin-left: 30.39vh;
     margin-top: 0.69vh;
 }
-.input{
-    border: 2px groove #14eeee77;
-}
-.input:focus{
-    border: 2px groove #14eeee77;
-}
+
 .divContainer{
     width: 113.5vh;
     padding: 3vh;
     box-shadow: .1vh .1vh .9vh rgba(128, 128, 128, 0.568);
-    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
 
-}
-  body{
-      height: 150vh;
-      background-color: #393E46;
 }
