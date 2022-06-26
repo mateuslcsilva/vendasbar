@@ -5,9 +5,9 @@ var div4 = document.querySelector('#div4')
 var dropDownDiv = document.querySelector('#dropDownDiv')
 var strikeNum = 0
 var mesa
-var mesaAcrescentar
-var mesaAlterar
-var mesaFechar
+var mesaAcrescentar = 999999
+var mesaAlterar = 999999
+var mesaFechar = 999999
 var dropDownItem = []
 
 function seletorMenu(div, element) {
@@ -112,18 +112,16 @@ function buscarMesa() {
     mesas.forEach((mesas, index) => {
         if (mesas.numMesa == num) {
             mesaAcrescentar = index
-        } else {
-            alert('Não há pedidos para essa mesa!')
-            document.querySelector('#mesaAcrescentar').value = ''
-        }
+        } 
     })
-    if (mesas[mesaAcrescentar].numMesa != undefined) {
+    if (mesaAcrescentar < 99999) {
         document.querySelector('#btnmesaAcrescentar').setAttribute('disabled', '')
         document.querySelector('#btnLimparAcrescentar').removeAttribute('disabled', '')
         document.querySelector('#btnPedidoAcrescentar').removeAttribute('disabled', '')
         document.querySelector('#visualizacaoAcrescentar').innerHTML = 'Mesa: ' + mesas[mesaAcrescentar].numMesa + '<br>' + mesas[mesaAcrescentar].pedido.join('')
     } else {
-        alert('Selecione mesa')
+             alert('Ops, parece que essa mesa está vazia.')
+            document.querySelector('#mesaAcrescentar').value = ''
     }
 }
 
@@ -212,16 +210,16 @@ function cancelarComanda() {
 }
 
 function cancelarPedido() {
-    if (document.querySelector('#divCancelarItem').children) {
-        var remover = []
-        remover = document.querySelectorAll('.wrap')
-        for (var i = 0; i < remover.length; i++) {
-            remover[i].remove()
-        }
-    }
-    document.querySelector('#divAlterarNumMesa').style.display = 'none'
+    // if (document.querySelector('#divCancelarItem').children) {
+    //     var remover = []
+    //     remover = document.querySelectorAll('.wrap')
+    //     for (var i = 0; i < remover.length; i++) {
+    //         remover[i].remove()
+    //     }
+    // }
     let button = document.querySelector('#btnCancelarItem')
-    button.remove()
+    document.querySelector('#divCancelarItem').innerHTML = ''
+    document.querySelector('#divAlterarNumMesa').style.display = 'none'
     document.querySelector('#divCancelarItem').style.display = 'block'
 
     for (var i = 0; i < mesas[mesaAlterar].pedido.length; i++) {
@@ -236,7 +234,7 @@ function cancelarPedido() {
         let label = document.createElement('label')
         label.setAttribute('class', 'label')
         label.setAttribute('data-num', 'label')
-        label.setAttribute('for', `{i}`)
+        label.setAttribute('for', i)
         label.dataset.dataNum = i
         label.setAttribute('onclick', 'strikeFunc(this)')
         label.innerHTML = mesas[mesaAlterar].pedido[i]
@@ -301,12 +299,10 @@ function mesaFechamento() {
     mesas.forEach((mesas, index) => {
         if (mesas.numMesa == num) {
             mesaFechar = index
-        } else {
-            alert('Não há pedidos para essa mesa!')
-            document.querySelector('#mesaAcrescentar').value = ''
         }
     })
-    if (num.length <= 2) {
+
+    if (mesaFechar < 99999) {
         var num1 = mesaFechar
         let total = somarTotal(mesas[num1].pedido)
         document.querySelector('#btnMesaFechar').setAttribute('disabled', '')
@@ -314,6 +310,9 @@ function mesaFechamento() {
         document.querySelector('#btnLimparFechar').removeAttribute('disabled', '')
         document.querySelector('#visualizacaoFechar').innerHTML = 'Mesa: ' + mesas[mesaFechar].numMesa + '<br>' + mesas[mesaFechar].pedido.join('')
         document.querySelector('#visualizacaoTotal').innerHTML = 'Total: ' + total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+    } else{
+        alert('Ops, parece que essa mesa está vazia.')
+        document.querySelector('#mesaFechar').value = ''
     }
 }
 

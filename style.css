@@ -7,55 +7,65 @@ body{
 
     font-weight: 600;
 }
+
 .section{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .div{
     margin-top: 7vh;
     width:80%
-
 }
 .divAlterar{
     margin-left: -3.03vh;
     margin-top: 4.55vh;
-    height: 22.79vh;
+
+    min-height: fit-content;
     width: 86.62vh;
     display: none;
 }
-
 
 #div1{
     display: block;
     margin-left: 15.19vh;
 }
+
 #div2, #div3, #div4{
     display: none;
     margin-left: 15.19vh;
 }
+
 #pedido, #pedidoAcrescentar{
     width: 53.19vh;
 }
+
 #mesa, #mesaAcrescentar, #mesaFechar, #novoNumMesa{
     width: 7.59vh;
 }
+
 .btnleft{
     margin-left: 30.39vh;
 }
+
 #pedidoRegistrado, #pedidoAcrescentarTxt{
     margin-left: 53.19vh;
 }
+
 #visualizacaoTotal{
     margin-left: 60.79vh;
 }
+
 #btnLimparFechar{
     margin-left: 1.51vh;
 }
+
 #dropDownDiv{
     width: 17vh;
     border: 1px solid #3e8ed0;
 }
+
 .dropdown-item{
     cursor: pointer;
     width: 90%;
@@ -69,34 +79,48 @@ body{
     background-color: #3e8ed0;
     color: white;
 }
+
 .padding-left{
     padding-left: 53.19vh;
 }
+
 .hidden{
     display: none;
 }
+
 .wrap{
     display: flex;
     height:  3.799vh;
     flex-direction: row;
+    align-items: center;
 }
+
 .label{
     margin-left:  0.759vh;
     margin-top: -1vh;
 }
+
+input[type=checkbox]{
+    margin-top: -1%;
+}
+
 #btnCancelarItem{
     margin-left: 30.39vh;
     margin-top: 0.69vh;
 }
 
 .divContainer{
+    border-radius: 5px;
     width: 113.5vh;
     padding: 3vh;
+    padding-bottom: 3vh;
     box-shadow: .1vh .1vh .9vh rgba(128, 128, 128, 0.568);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-
+    min-height: fit-content;
 }
+
+
